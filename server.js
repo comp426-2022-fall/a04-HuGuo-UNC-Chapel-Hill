@@ -24,7 +24,14 @@ app.get('/app/', (req, res, next) => {
     res.send("200 OK")
 })
 
+app.get('/app/roll/', (req, res, next) => {
+    res.send(roll(6, 2, 1))
+})
 
+app.get('*', (req, res, next) => {
+    res.status(404),
+    res.send("404 NOT FOUND")
+})
 
 
 
