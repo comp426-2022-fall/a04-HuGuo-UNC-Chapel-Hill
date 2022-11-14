@@ -20,8 +20,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.get('/app/', (req, res, next) => {
-    res.status(200).send("200 OK")
+    res.send("200 OK")
 })
+
 
 
 
