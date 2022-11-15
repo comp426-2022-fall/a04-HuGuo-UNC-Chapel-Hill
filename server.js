@@ -25,8 +25,25 @@ app.get('/app/', (req, res, next) => {
 })
 
 app.get('/app/roll/', (req, res, next) => {
+    res.status(200)
     res.send(roll(6, 2, 1))
 })
+
+
+app.post('/app/roll/', (req, res, next) => {
+    let sides = parseInt(req.body.sides);
+    let dice = parseInt(req.body.dice);
+    let rolls = parseInt(req.body.rolls);
+    res.status(200)
+    res.send(roll(sides, dice, rolls))    
+})
+
+app.get('/app/roll/:sides', (req, res, next) => {
+    const sides = parseInt(req.body.sides);
+    res.status(200)
+    res.send(roll(sides, 2, 1))
+})
+
 
 app.get('*', (req, res, next) => {
     res.status(404),
