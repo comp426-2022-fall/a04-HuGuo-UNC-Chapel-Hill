@@ -24,38 +24,24 @@ app.get('/app/', (req, res, next) => {
     res.send("200 OK")
 })
 
-<<<<<<< HEAD
 app.get('/app/roll/', (req, res, next) => {
     res.status(200)
     res.send(roll(6, 2, 1))
-=======
-app.post("/app/roll/", (req, res, next) => {
-    const side_in = parseInt(req.body.sides);
-    const dice_in = parseInt(req.body.dice);
-    const roll_in = parseInt(req.body.rolls);
-    res.send(roll(side_in, dice_in, roll_in));
-})
-
-
-app.get("/app/roll/:sides", (req, res, next) => {
-    const side_in = parseInt(req.params.sides);
-	res.send(roll(side_in, 2, 1));
->>>>>>> 1eda51eb91657e102447d784cc7cccd5875330e5
 })
 
 
 app.post('/app/roll/', (req, res, next) => {
-    let sides = parseInt(req.body.sides);
-    let dice = parseInt(req.body.dice);
-    let rolls = parseInt(req.body.rolls);
-    res.status(200)
-    res.send(roll(sides, dice, rolls))    
+    const sides = parseInt(req.body.sides);
+    const dice = parseInt(req.body.dice);
+    const rolls = parseInt(req.body.rolls);
+    res.status(200);
+    res.send(roll(sides, dice, rolls));    
 })
 
 app.get('/app/roll/:sides', (req, res, next) => {
     const sides = parseInt(req.body.sides);
-    res.status(200)
-    res.send(roll(sides, 2, 1))
+    res.status(200);
+    res.send(roll(sides, 2, 1));
 })
 
 
