@@ -28,6 +28,13 @@ app.get('/app/roll/', (req, res, next) => {
     res.send(roll(6, 2, 1))
 })
 
+app.get('/app/roll/:side/:dice/:rolls', (res, req, next) => {
+    var side_in = req.params.side
+    var dice_in =  req.params.dice
+    var rolls_in = req.params.rolls
+    res.send(roll(side_in, dice_in, rolls_in))
+})
+
 app.get('*', (req, res, next) => {
     res.status(404),
     res.send("404 NOT FOUND")
