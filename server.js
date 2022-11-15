@@ -24,15 +24,17 @@ app.get('/app/', (req, res, next) => {
     res.send("200 OK")
 })
 
-app.get('/app/roll/', (req, res, next) => {
-    res.send(roll(6, 2, 1))
+app.post("/app/roll/", (req, res, next) => {
+    const side_in = parseInt(req.body.sides);
+    const dice_in = parseInt(req.body.dice);
+    const roll_in = parseInt(req.body.rolls);
+    res.send(roll(side_in, dice_in, roll_in));
 })
 
-app.get('/app/roll/:side/:dice/:rolls', (res, req, next) => {
-    var side_in = req.params.side
-    var dice_in =  req.params.dice
-    var rolls_in = req.params.rolls
-    res.send(roll(side_in, dice_in, rolls_in))
+
+app.get("/app/roll/:sides", (req, res, next) => {
+    const side_in = parseInt(req.params.sides);
+	res.send(roll(side_in, 2, 1));
 })
 
 app.get('*', (req, res, next) => {
